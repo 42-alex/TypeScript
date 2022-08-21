@@ -36,3 +36,18 @@ function AddProduct() {
   )
 }
 ```
+
+---
+
+### Data type for change input handler (React.ChangeEvent<HTMLInputElement>)
+
+```
+function AddProduct() {
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => { //... }
+  
+  return (
+    <input type="text" value={productName} onChange={changeHandler}>
+    {/*...*/}
+  )
+}
+```
