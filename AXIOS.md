@@ -21,3 +21,20 @@ export interface IProduct {
   }
 }
 ```
+
+
+### Error typing
+
+```
+    const [error, setError] = useState('');
+    // ...
+    
+    const fetchProducts = async () => {
+        try {
+            const response = await axios.get<IProduct[]>('https://test.com/products');
+        } catch (e: unknown) {
+            const error = e as AxiosError;
+            setError(error.message);
+        }
+    }
+```
