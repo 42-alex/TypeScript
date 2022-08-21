@@ -10,7 +10,7 @@
 
 ---
 
-### Data type for children prop in a component
+### Data type for children prop in a component (React.ReactNode)
 
 ```
 interface ModalProps {
@@ -19,5 +19,20 @@ interface ModalProps {
 
 function Modal({ children }: ModalProps) {
   //...
+}
+```
+
+---
+
+### Data type for submit form handler (React.FormEvent)
+
+```
+function AddProduct() {
+  const handleSubmit = (e: React.FormEvent) => { //... }
+  
+  return (
+    <form onSubmit={handleSubmit}>
+    {/*...*/}
+  )
 }
 ```
