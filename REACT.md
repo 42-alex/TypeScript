@@ -51,3 +51,23 @@ function AddProduct() {
   )
 }
 ```
+
+---
+
+### Data type for context 
+
+```
+import { createContext } from 'react';
+
+interface IModalContext {
+  isModalOpened: boolean
+  openModal: () => void
+  closeModal: () => void
+}
+
+export const ModalContext = createContext<IModalContext>({
+  isModalOpened: false,
+  openModal: () => {},
+  closeModal: () => {},
+})
+```
