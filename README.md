@@ -18,3 +18,14 @@ const John: User = {
     isMarried: true
 }
 ```
+
+### How to restrict object props
+
+Instead of any string as object property we can use a limited set of strings
+```
+type Genre = 'psychedelic' | 'progressive rock' | 'rock n\'roll' | 'classic rock'
+
+type GenreMap = {
+  [genre in Genre]: Band[]
+}
+```
