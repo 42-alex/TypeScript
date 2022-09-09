@@ -132,3 +132,12 @@ const [user, setUser] = useState<User>({} as User);
 setUser(newUser);
 ```
 
+### How to set redux reducer types
+```
+import { Reducer } from 'redux';
+
+export function reducer: Reducer<AppState, Action>() {}
+```
+
+More examples and explanation [here](https://github.com/typescript-cheatsheets/react#usereducer)
+
