@@ -105,3 +105,30 @@ Component.defaultProps = { name: "John" };
 
 const  Example = () => (<Component />) /* Safe to omit since name has a default value */
 ```
+
+---
+
+### How to set types with useState hook
+a) for simple values type inference works very well
+```
+const [state, setState] = useState(false);
+// 'state' is inferred to be a boolean
+// 'setState' only takes booleans
+```
+b) null-ish default values
+* option 1 - explicitly declare the type, and use a union type
+```
+const [user, setUser] = useState<User | null>(null);
+
+// later...
+setUser(newUser);
+```
+
+* option 2 - using type assertions if a state is initialized soon after setup and always has a value after
+```
+const [user, setUser] = useState<User>({} as User);
+
+// later...
+setUser(newUser);
+```
+
