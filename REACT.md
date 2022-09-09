@@ -31,6 +31,14 @@ const MyComponent = ({ message }: { message: string }) => (
   <div className="msg">{message}</div>
 );
 ```
+or
+```
+type ComponentProps = { message: string }
+const MyComponent = ({ message }: ComponentProps) => (
+  <div className="msg">{message}</div>
+);
+```
+
 
 ---
 
@@ -80,4 +88,20 @@ export const ModalContext = createContext<IModalContext>({
   openModal: () => {},
   closeModal: () => {},
 })
+```
+
+---
+
+### How to safely declare an optional prop (using the "defaultProps")
+```
+type  ComponentProps = { name: string; }
+
+const  Component = ({ name }: ComponentProps) => (
+  <div>
+    {name.toUpperCase()} /* Safe since name is required */
+  </div>
+);
+Component.defaultProps = { name: "John" };
+
+const  Example = () => (<Component />) /* Safe to omit since name has a default value */
 ```
