@@ -24,6 +24,16 @@ function Modal({ children }: ModalProps) {
 
 ---
 
+### Data type with object destructuring
+
+```
+const MyComponent = ({ message }: { message: string }) => (
+  <div className="msg">{message}</div>
+);
+```
+
+---
+
 ### Data type for submit form handler (React.FormEvent)
 
 ```
