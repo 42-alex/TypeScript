@@ -26,14 +26,18 @@ function Modal({ children }: ModalProps) {
 
 ### Data type for submit form handler (React.FormEvent)
 
+Uncontrolled
 ```
-function AddProduct() {
-  const handleSubmit = (e: React.FormEvent) => { //... }
-  
-  return (
-    <form onSubmit={handleSubmit}>
-    {/*...*/}
-  )
+function AddTodo() {
+  const handleSubmit = (e: React.FormEvent) => {
+    const target = e.target as HTMLFormElement;
+    const formFields = Object.fromEntries(new FormData(target)) as {[k: string]: string} ;
+    const newTodo: TodoToCreate = {
+      title: formFields.todoTitle,
+      importance: formFields.todoImportance as TodoImportance,
+    }
+    addTodo(newTodo).then(resetForm);
+  }
 }
 ```
 
